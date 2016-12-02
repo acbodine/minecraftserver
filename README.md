@@ -22,6 +22,8 @@ $ make clean
 ```
 
 ## IBM Container Service (ICS)
+NOTE: This setup requires that you have the Bluemix CLI and the IBM Containers plugin installed and in your `PATH`. [CLI and dev tools](https://console.ng.bluemix.net/docs/cli/index.html#cli)
+
 NOTE: This setup requires that you have a free public ip in your Bluemix space to allocate to the Minecraft server. Otherwise you won't be able to connect to the container running on ICS. You can check this by running:
 ```
 $ bx ic ips
