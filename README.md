@@ -1,6 +1,22 @@
 # minecraftserver
 Run the Minecraft server in a Docker container, anywhere!
 
+<img
+  alt="Minecraft Diamond Sword"
+  width=200
+  src="http://www.thinkgeek.com/images/products/frontsquare/inmt_minecraft_deluxe_diamond_sword.jpg"
+/>
+<img
+  alt="Docker"
+  width=200
+  src="https://pbs.twimg.com/profile_images/378800000124779041/fbbb494a7eef5f9278c6967b6072ca3e_400x400.png"
+/>
+<img
+  alt="IBM Bluemix"
+  width=200
+  src="https://ih1.redbubble.net/image.160886161.3072/flat,800x800,075,f.jpg"
+/>
+
 ## Docker
 
 #### Build
