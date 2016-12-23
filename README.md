@@ -71,10 +71,35 @@ $ make cleanup-bluemix
 ```
 
 #### Upgrade
-As Minecraft server versions are released this repo's `Dockerfile` will be updated to reflect that. Simply make
-sure you are up-to-date with `master` branch, and then re-run the container on Bluemix.
+1. IMPORTANT: Before doing the steps below, please make a backup of your existing server data. If this is the first time you have done this upgrade, then you will need to do steps 1-3. Otherwise, you only need to do step 2.
+```
+$ bx ic exec -it minecraftserver bash
+$ tar -czf minecraftserver-backup.tgz \
+    banned-ips.json \
+    banned-players.json \
+    eula.txt \
+    ops.json \
+    server.properties \
+    usercache.json \
+    whitelist.json \
+    world
+$ exit
+$ bx ic cp minecraftserver:/minecraftserver-backup.tgz .
+```
+
+2. As Minecraft server versions are released this repo's `Dockerfile` will be updated to reflect that. Simply make sure you are up-to-date with `master` branch, and then re-run the container on Bluemix.
 ```
 $ git checkout master
 $ git pull origin master
 $ make run-bluemix
+```
+
+3. This step is only necessary because I switched the container creation on Bluemix to include a volume to make upgrades easier and worry free. You need to do this with the server backup you made only once, after that all of your data is safe in a volume and you are free to do anything you want to your container. Just don't touch the volume `minecraftserver-data`
+```
+$ bx ic cp minecraftserver-backup.tgz minecraftserver:/root/
+$ bx ic exec -it minecraftserver bash
+$ cd /root/minecraftserver
+$ tar -xzf ../minecraftserver-backup.tgz
+$ exit
+$ bx ic restart minecraftserver
 ```
