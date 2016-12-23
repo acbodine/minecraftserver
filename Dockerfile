@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 # Args
-ARG v=1.11
+ARG v=1.11.2
 
 # Install Java
 RUN apt-get autoclean
