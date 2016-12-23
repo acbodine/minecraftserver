@@ -13,14 +13,13 @@ RUN apt-get install -y \
 RUN apt-get clean
 
 # Install Minecraft server
+WORKDIR /opt/minecraft
+RUN cd /opt/minecraft
 RUN curl -LO# https://s3.amazonaws.com/Minecraft.Download/versions/${v}/minecraft_server.${v}.jar
 RUN ln -s minecraft_server.${v}.jar minecraft_server.jar
-RUN echo "eula=true" > eula.txt
-
-# NOTE: Copy any existing server data
-COPY . .
 
 EXPOSE 25565
 
-ENTRYPOINT ["java"]
-CMD ["-Xmx1024M", "-Xms1024M", "-jar", "minecraft_server.jar", "nogui"]
+COPY entrypoint.sh .
+
+ENTRYPOINT ["sh", "entrypoint.sh"]

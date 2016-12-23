@@ -70,9 +70,11 @@ Now you can point your Minecraft client to the `$public_ip` and you should be mi
 $ make cleanup-bluemix
 ```
 
-## Migrate (Local or Bluemix)
-If you have an existing server you want to preserve game data from,
-simply copy those artifacts to the root of this repo before you start
-building the Docker image.
-
-HINT: if you are wondering what files you need look at the `.gitignore`
+#### Upgrade
+As Minecraft server versions are released this repo's `Dockerfile` will be updated to reflect that. Simply make
+sure you are up-to-date with `master` branch, and then re-run the container on Bluemix.
+```
+$ git checkout master
+$ git pull origin master
+$ make run-bluemix
+```
