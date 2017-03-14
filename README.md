@@ -9,7 +9,7 @@ Run the Minecraft server in a Docker container, anywhere!
 <img
   alt="Docker"
   width=200
-  src="https://pbs.twimg.com/profile_images/378800000124779041/fbbb494a7eef5f9278c6967b6072ca3e_400x400.png"
+  src="http://blog.cloudera.com/wp-content/uploads/2015/12/docker-logo.png"
 />
 <img
   alt="IBM Bluemix"
